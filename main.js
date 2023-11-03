@@ -58,7 +58,7 @@ function renderToDom(students) {
     <div class="card-body">
       <h5 class="card-title">${student.lastName}</h5>
       <div class="card-footer">${student.houseType}</div>
-      <button class="btn btn-danger" id="delete--${student.id}">Delete</button>
+      <button class="btn btn-danger" id="delete--${student.id}">Expel</button>
     </div>
     </div>`;
   });
@@ -67,49 +67,39 @@ function renderToDom(students) {
 renderToDom(students);
 
 
-
-
-// Create click event, a students name will assign student to random house. randomizer. it should also clear the form after clicking. 
-// type the name 
-// randomly select house
-// create new card for student
-// render new card to "first year kiddos" div
-
 // ---------------------------------------
 
-// const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
-// // const studentsArray = [];
+const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 
  
-// const newCard = (event) => {
-//   event.preventDefault(); 
+const newCard = (event) => {
+  event.preventDefault(); 
 
-//   const houseRandom = houses[Math.floor(Math.random() * houses.length)];
-//   const sortForm = document.querySelector("submit");
+  const houseRandom = houses[Math.floor(Math.random() * houses.length)];
+  // too long to put in object, this works
+  // I must select the input ID. This affects new card showing up once I type the first and last name! 
+  const firstName = document.querySelector("#typeName").value;
+  const lastName = document.querySelector("#typeName").value;
 
-//   // too long to put in object, this works
-//   const firstName = document.querySelector("#firstName").value;
-//   const lastName = document.querySelector("#lastName").value;
+  // create object for new student +1 will add one more to the length of the students array
+  const newStudentObj = {
+    id: students.length + 1, 
+    firstName,
+    lastName,
+    houseType: houseRandom,
+  };
 
-//   // create object
-//   const newStudentObj = {
-//     id: students.length + 1, 
-//     firstName,
-//     lastName,
-//     houseType: houseRandom,
-//   };
+students.push(newStudentObj);
+renderToDom(students);
+// clear form out
+document.querySelector('form').reset();
 
-// students.push(newStudentObj);
-// renderToDom(students);
-// // clear form out
-// sortForm.reset();
+};
+// need queryselector and event listener for submit button
+// must do this after rendering to dom 
 
-// };
-// // need queryselector and event listener for submit button
-// // must do this after rendering to dom 
-
-// // const submitButton = document.querySelector("#submit");
-// submitButton.addEventListener("click", newCard);
+// queryselector
+document.getElementById("submit").addEventListener("click", newCard);
 // // -----------------------------------------------------------
 
 
@@ -127,3 +117,17 @@ document.querySelector("#Gryffindor-button").addEventListener("click", () => fil
 document.querySelector("#Hufflepuff-button").addEventListener("click", () => filterStudentsByHouse("Hufflepuff"));
 document.querySelector("#Ravenclaw-button").addEventListener("click", () => filterStudentsByHouse("Ravenclaw"));
 document.querySelector("#Slytherin-button").addEventListener("click", () => filterStudentsByHouse("Slytherin"));
+
+
+// expel student
+
+// // add event listener to listen to each of delete button/function
+const expelStudent = (event) => {
+  if (event.target.id.includes("delete")) {
+// use split method to do destructuring 
+    c
+
+  }}
+
+
+// app.addEventListener("click", expelStudent);
