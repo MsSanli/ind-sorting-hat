@@ -1,9 +1,12 @@
 body {
   background-color: darkred;
+  background-image: url(https://images8.alphacoders.com/110/1102284.jpg);
 }
 
 
-.new-students-cards{
+
+
+#new-student-cards{
   width: 50%;
   border: 2px black solid;
   border-radius: .25rem;
@@ -11,10 +14,11 @@ body {
   padding-top: 45px;
 }
 
-.voldy-cards {
+#voldy-cards {
     width: 50%;
     border: 2px solid black;
-    border-radius: .25rem;
     margin: 20px;
+    border-radius: .25rem;
     padding-top: 50px;
+
 }
