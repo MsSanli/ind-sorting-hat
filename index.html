@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="main.css" />
   </head>
+
   <body>
     <div class="hugetext text-center">
       <h1 class="display-4">Welcome to Hogwarts!</h1>
@@ -20,23 +21,32 @@
       </p>
       <hr class="my-4" />
       <p>
-     Another fancy spell heh
+     Another fancy spell 
       </p>
+      <button id="startButton" class="btn btn-primary btn-lg">
+        Let's Start Sorting
+      </button>
+    </div>
 
 
 
-      <!-- Sort Form -->
+      <!-- submit sort -->
       <!-- might move this to main.js with backticks -->
       <form>
-        <div class="new-students" "mb-3">
+        <div class="add-students" "mb-3">
           <label for="Student" class="form-label">Student</label>
-          <input type="text" class="form-control mx-3" id="studentName" placeholder="Harreh Pottah" required>
+          <input type="text" class="form-control mx-3" id="typeName" placeholder="Luna Lovegood" required>
         </div>
-        <button id="submit" class="btn btn-primary">Submit</button>
+        <button id="submit" class="btn btn-primary">Sort</button>
       </div>
       </form>
+
     </div>
-    
+    <form id="sortForm">
+
+
+
+
 
     <!-- buttons  -->
     <div class="button-group" id="buttongroup">
@@ -50,17 +60,17 @@
 <!-- Need div container for First Years and Voldy. Both need to be in a container -->
 <!-- need to figure out how to get this in a box to the left w/ space!!!! ah -->
 
-<div class="card-space">
-  <div class="new-students-cards">
-  <h5>First Year Kiddos</h5>
-  </div>
+
+<div class="container"> 
+  <h4>First Year Students</h4> 
+   <div id="new-student-cards">
+<div id="card"></div>
+</div>
   
-  <div class="voldy-cards">
-    <h5>Voldy's Army</h5>
+  <div id="voldy-cards">
+    <h4>Voldy's Army</h4>
   </div>
 </div>
-
-
 
 
 <!-- 
@@ -78,16 +88,7 @@
  -->
 
 
-
-
-
-
-
-
-
   
-
-<div id="app"></div>
 
     
     <script
