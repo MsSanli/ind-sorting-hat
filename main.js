@@ -77,10 +77,11 @@ const newCard = (event) => {
 
   const houseRandom = houses[Math.floor(Math.random() * houses.length)];
   // too long to put in object, this works
-  const firstName = document.querySelector("#firstName").value;
-  const lastName = document.querySelector("#lastName").value;
+  // I must select the input ID. This affects new card showing up once I type the first and last name! 
+  const firstName = document.querySelector("#typeName").value;
+  const lastName = document.querySelector("#typeName").value;
 
-  // create object
+  // create object for new student +1 will add one more to the length of the students array
   const newStudentObj = {
     id: students.length + 1, 
     firstName,
