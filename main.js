@@ -42,13 +42,11 @@ document.getElementById("submit").hidden = false;
 })
 
 
-
-
 const app = document.querySelector("#new-student-cards");
 
 // Function to render cards to dom that takes array
 // create domstring to push cards to it
-// for each loop over array and create student cards 
+// for each loop over array and create student cards using boostrap
 
 function renderToDom(students) {
   let domString = "";
@@ -62,6 +60,7 @@ function renderToDom(students) {
     </div>
     </div>`;
   });
+  // replace and update innerHTML w/ domstring contents
   app.innerHTML = domString;
 }
 renderToDom(students);
@@ -95,10 +94,8 @@ renderToDom(students);
 document.querySelector('form').reset();
 
 };
-// need queryselector and event listener for submit button
-// must do this after rendering to dom 
+// need queryselector and event listener for submit button. Or getELementById** was changed 
 
-// queryselector
 document.getElementById("submit").addEventListener("click", newCard);
 // // -----------------------------------------------------------
 
@@ -121,13 +118,32 @@ document.querySelector("#Slytherin-button").addEventListener("click", () => filt
 
 // expel student
 
-// // add event listener to listen to each of delete button/function
+// function is event listener that listens for click w/ an element that has an id that includes text "delete". 
 const expelStudent = (event) => {
+  // if delete button is clicked, function proceeds. event.target is the element thats triggered by the event. 
   if (event.target.id.includes("delete")) {
-// use split method to do destructuring 
-    c
+    // splits delete button id and assigns 2nd part (student id) to the id variable
+    const [, id] = event.target.id.split('--');
+    const voldyCardsContainer = document.querySelector('#voldy-cards');
+    // The Element.closest() method is a built-in JavaScript method that helps you find the nearest ancestor (parent or grandparent) element.
+    // Starts w/ delete button selected id and then uses closest method to find the closest ancestor w/ the class card
+    const expelledCard = document.querySelector(`#delete--${id}`).closest('.card');
 
-  }}
+    if (expelledCard) {
+      voldyCardsContainer.appendChild(expelledCard);
+      // line above appends expelledCard to voldycardscontainer - moving the student card to voldys army on the dom 
+    }
+
+    // Update the students array to remove the expelled student 
+    const index = students.findIndex((obj) => obj.id === Number(id));
+    students.splice(index, 1);
+
+    renderToDom(students); // Rerender the remaining students
+  }
+};
+// 
+app.addEventListener("click", expelStudent);
+// adding expelStudent function as a click event listener to the app el
 
 
-// app.addEventListener("click", expelStudent);
+ 
